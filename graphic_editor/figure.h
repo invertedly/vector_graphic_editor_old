@@ -11,6 +11,6 @@ namespace vector_graphic_editor
 		explicit figure(figure_id id) : id_(std::move(id)) {}
 	public:
 		[[nodiscard]] figure_id get_id() const noexcept { return id_; }
-		virtual ~figure() = default;
+		virtual ~figure();
 	};
 }

@@ -23,5 +23,7 @@ namespace vector_graphic_editor
 
 		void set_first_coord(const coordinate point)	noexcept { first_ = point; }
 		void set_second_coord(const coordinate point)	noexcept { second_ = point; }
+
+		~figure_with_two_coordinates() override = default;
 	};
 }

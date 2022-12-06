@@ -13,21 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\figures">
+      <UniqueIdentifier>{a88d5f31-8094-46bd-b036-bd5207fd838b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\commands">
+      <UniqueIdentifier>{d1816925-6703-483c-80e1-6a2a25719c39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="command.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="command_parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="coordinate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ellipse.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="figure_database.h">
@@ -36,29 +33,38 @@
     <ClInclude Include="figure_database_exception.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="figure_id.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure_id_exception.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rectangle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="scene_parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="figure.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="ellipse.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="line.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="rectangle.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="command.h">
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
     <ClInclude Include="translate.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_id.h">
+      <Filter>Header Files\figures</Filter>
     </ClInclude>
     <ClInclude Include="figure_id_hash.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_id_exception.h">
+      <Filter>Header Files\figures</Filter>
     </ClInclude>
     <ClInclude Include="figure_with_two_coordinates.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\figures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
