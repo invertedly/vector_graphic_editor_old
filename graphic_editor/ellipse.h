@@ -14,10 +14,18 @@ namespace vector_graphic_editor
 		explicit ellipse(
 			const figure_id& id,
 			const coordinate center = { 0,0 },
-			const double height = 0,
-			const double width = 0,
+			const double axis1_len = 0,
+			const double axis2_len = 0,
 			const double rotation = 0
-		) : figure(id), center_(center), axis1_len_(height), axis2_len_(width), rotation_(rotation) {}
+		)
+		noexcept (std::is_nothrow_constructible_v<figure, figure_id>)
+			: figure(id),
+			  center_(center),
+			  axis1_len_(axis1_len),
+			  axis2_len_(axis2_len),
+			  rotation_(rotation)
+		{
+		}
 
 		[[nodiscard]] coordinate get_center()	const noexcept { return center_; }
 		[[nodiscard]] double get_axis1_len()	const noexcept { return axis1_len_; }

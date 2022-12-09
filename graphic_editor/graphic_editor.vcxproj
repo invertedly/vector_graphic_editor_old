@@ -128,8 +128,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="command.h" />
+    <ClInclude Include="command_interface.h" />
     <ClInclude Include="command_parser.h" />
+    <ClInclude Include="command_pool.h" />
     <ClInclude Include="coordinate.h" />
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="figure.h" />
@@ -139,10 +140,36 @@
     <ClInclude Include="figure_id_exception.h" />
     <ClInclude Include="figure_id_hash.h" />
     <ClInclude Include="figure_with_two_coordinates.h" />
+    <ClInclude Include="not_executable_command_exception.h" />
+    <ClInclude Include="rotate.h" />
+    <ClInclude Include="rotate_strategy.h" />
+    <ClInclude Include="rotate_strategy_ellipse.h" />
+    <ClInclude Include="rotate_strategy_figure_with_two_coordinates.h" />
+    <ClInclude Include="rotate_strategy_interface.h" />
+    <ClInclude Include="rotate_strategy_line.h" />
+    <ClInclude Include="rotate_strategy_rectangle.h" />
+    <ClInclude Include="scale.h" />
+    <ClInclude Include="scale_strategy.h" />
+    <ClInclude Include="scale_strategy_ellipse.h" />
+    <ClInclude Include="scale_strategy_figure_with_two_coordinates.h" />
+    <ClInclude Include="scale_strategy_interface.h" />
+    <ClInclude Include="scale_strategy_line.h" />
+    <ClInclude Include="scale_strategy_rectangle.h" />
+    <ClInclude Include="translate_strategy.h" />
+    <ClInclude Include="translate_strategy_ellipse.h" />
+    <ClInclude Include="translate_strategy_rectangle.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="scene_parser.h" />
     <ClInclude Include="translate.h" />
+    <ClInclude Include="translate_strategy_interface.h" />
+    <ClInclude Include="translate_strategy_figure_with_two_coordinates.h" />
+    <ClInclude Include="translate_strategy_line.h" />
+    <ClInclude Include="undo_command.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="command_pool.cpp" />
+    <ClCompile Include="figure_database.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

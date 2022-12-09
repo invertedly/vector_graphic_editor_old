@@ -13,23 +13,15 @@ namespace vector_graphic_editor
 	{
 		std::unordered_map<
 			figure_id,
-			std::unordered_map<std::type_index, figure>,
+			std::unordered_map<
+				std::type_index,
+				std::shared_ptr<figure>
+			>,
 			figure_id_hash
 		> database_;
 	public:
-		void add(const figure& item)
-		{
-			if (has(item))
-			{
-				throw figure_database_exception("repetative type and id");
-			}
+		void add(const std::shared_ptr<figure>& item);
 
-			database_[item.get_id()].insert(std::make_pair(std::type_index(typeid(item)), item));
-		}
-
-		[[nodiscard]] bool has(const figure& item) const noexcept
-		{
-			return database_.contains(item.get_id()) && database_.at(item.get_id()).contains(std::type_index(typeid(item)));
-		}
+		[[nodiscard]] bool contains(const std::shared_ptr<figure>& item) const noexcept;
 	};
 }

@@ -8,7 +8,8 @@ namespace vector_graphic_editor
 	{
 		std::string data_;
 	public:
-		explicit figure_id(const std::string& s) : data_(s)
+		explicit figure_id(const std::string& s)
+			: data_(s)
 		{
 			if (s.find(']') != std::string::npos)
 			{
@@ -16,7 +17,7 @@ namespace vector_graphic_editor
 			}
 		}
 
-		bool operator==(const figure_id& other) const
+		bool operator==(const figure_id& other) const noexcept
 		{
 			return data_ == other.data_;
 		}
