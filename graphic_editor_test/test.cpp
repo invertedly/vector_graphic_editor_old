@@ -12,7 +12,7 @@
 #include "../graphic_editor/rectangle.h"
 
 TEST(figure_database, default) {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 
 	figure_database database;
 
@@ -43,7 +43,7 @@ TEST(figure_database, default) {
 
 TEST(translate, line)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto l = std::make_shared<line>(figure_id{ "id" });
 	auto cmd = translate(l, 1.0, 2.0);
 	cmd.execute();
@@ -55,7 +55,7 @@ TEST(translate, line)
 
 TEST(translate, rectangle)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto r = std::make_shared<rectangle>(figure_id{ "id" });
 	auto cmd = translate(r, -1.0, -2.0);
 	cmd.execute();
@@ -68,7 +68,7 @@ TEST(translate, rectangle)
 
 TEST(translate, ellipse)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto e = std::make_shared <ellipse>(figure_id{ "id" });
 	auto cmd = translate(e, 1.5, 2.5);
 	cmd.execute();
@@ -78,7 +78,7 @@ TEST(translate, ellipse)
 
 TEST(scale, line)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto l = std::make_shared<line>(
 		figure_id{ "id" }, 
 		coordinate{ -1,-1 }, 
@@ -94,7 +94,7 @@ TEST(scale, line)
 
 TEST(scale, rectangle)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto r = std::make_shared<rectangle>(
 		figure_id{ "id" }, 
 		coordinate{ -1,-1 }, 
@@ -110,7 +110,7 @@ TEST(scale, rectangle)
 
 TEST(scale, ellipse)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto e1 = std::make_shared <ellipse>(
 		figure_id{ "id" }, 
 		coordinate{ 0,0 }, 
@@ -133,7 +133,7 @@ TEST(scale, ellipse)
 
 TEST(rotate, line)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto l = std::make_shared<line>(
 		figure_id{ "id" },
 		coordinate{ -1,-1 },
@@ -149,7 +149,7 @@ TEST(rotate, line)
 
 TEST(rotate, rectangle)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto r = std::make_shared<rectangle>(
 		figure_id{ "id" },
 		coordinate{ -1,-1 },
@@ -165,7 +165,7 @@ TEST(rotate, rectangle)
 
 TEST(rotate, ellipse)
 {
-	using namespace vector_graphic_editor;
+	using namespace vector_graphic_editor_old;
 	auto e = std::make_shared <ellipse>(
 		figure_id{ "id" },
 		coordinate{ 0,0 },

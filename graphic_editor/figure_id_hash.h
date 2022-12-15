@@ -2,7 +2,7 @@
 
 #include "figure_id.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	struct figure_id_hash final
 	{

@@ -7,7 +7,7 @@
 #include "figure_id_hash.h"
 #include "figure_database_exception.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class figure_database final
 	{
@@ -20,8 +20,24 @@ namespace vector_graphic_editor
 			figure_id_hash
 		> database_;
 	public:
-		void add(const std::shared_ptr<figure>& item);
+		void add(const std::shared_ptr<figure>& item)
+		{
+			if (contains(item))
+			{
+				throw figure_database_exception("repetative type and id");
+			}
 
-		[[nodiscard]] bool contains(const std::shared_ptr<figure>& item) const noexcept;
+			database_[item->get_id()].insert(
+				std::make_pair(std::type_index(typeid(*item)), item)
+			);
+		}
+
+		[[nodiscard]] bool contains(const std::shared_ptr<figure>& item) const noexcept
+		{
+			const figure_id id = item->get_id();
+
+			return database_.contains(id) &&
+				database_.at(id).contains(std::type_index(typeid(*item)));
+		}
 	};
 }

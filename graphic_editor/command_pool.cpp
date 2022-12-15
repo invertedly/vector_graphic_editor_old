@@ -1,6 +1,6 @@
 #include "command_pool.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	void command_pool::add(std::shared_ptr<command_interface> command)
 	{

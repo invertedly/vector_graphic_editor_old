@@ -3,7 +3,7 @@
 #include "command_interface.h"
 #include "not_executable_command_exception.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class undo_command : command_interface
 	{

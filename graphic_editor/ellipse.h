@@ -2,7 +2,7 @@
 #include "figure.h"
 #include "coordinate.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class ellipse final : public figure
 	{

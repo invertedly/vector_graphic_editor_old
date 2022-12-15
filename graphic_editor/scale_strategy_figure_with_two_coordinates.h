@@ -3,7 +3,7 @@
 #include "figure_with_two_coordinates.h"
 #include "scale_strategy.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	template<typename T>
 	requires std::is_convertible_v<T, figure_with_two_coordinates>

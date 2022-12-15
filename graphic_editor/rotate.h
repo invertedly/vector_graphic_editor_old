@@ -9,7 +9,7 @@
 #include "rotate_strategy_rectangle.h"
 #include "rotate_strategy_ellipse.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	template<typename T>
 	requires std::is_convertible_v<T, figure>

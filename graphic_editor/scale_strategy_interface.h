@@ -3,7 +3,7 @@
 
 #include "figure.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class scale_strategy_interface
 	{

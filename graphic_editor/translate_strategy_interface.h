@@ -4,7 +4,7 @@
 #include "coordinate.h"
 #include "figure.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class translate_strategy_interface
 	{

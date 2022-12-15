@@ -6,7 +6,7 @@
 #include "command_interface.h"
 #include "undo_command.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class command_pool final
 	{

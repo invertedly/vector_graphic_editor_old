@@ -2,7 +2,7 @@
 #include <exception>
 #include <string>
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class figure_database_exception final : public std::exception
 	{

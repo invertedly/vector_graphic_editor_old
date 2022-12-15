@@ -2,7 +2,7 @@
 #include <exception>
 #include <string>
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class not_executable_command_exception final : public std::exception
 	{

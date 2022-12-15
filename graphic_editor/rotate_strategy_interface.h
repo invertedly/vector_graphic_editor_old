@@ -4,7 +4,7 @@
 
 #include "figure.h"
 
-namespace vector_graphic_editor
+namespace vector_graphic_editor_old
 {
 	class rotate_strategy_interface
 	{
