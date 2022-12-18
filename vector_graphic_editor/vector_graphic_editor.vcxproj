@@ -130,11 +130,11 @@
   <ItemGroup>
     <ClInclude Include="angle_converter.h" />
     <ClInclude Include="command_interface.h" />
-    <ClInclude Include="command_queue.h" />
     <ClInclude Include="coordinate.h" />
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="figure_database.h" />
     <ClInclude Include="figure_database_exception.h" />
+    <ClInclude Include="figure_database_iterator_exception.h" />
     <ClInclude Include="figure_id.h" />
     <ClInclude Include="figure_id_exception.h" />
     <ClInclude Include="figure_id_hash.h" />
@@ -146,7 +146,6 @@
     <ClInclude Include="translate.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="command_queue.cpp" />
     <ClCompile Include="coordinate.cpp" />
     <ClCompile Include="ellipse.cpp" />
     <ClCompile Include="figure_database.cpp" />

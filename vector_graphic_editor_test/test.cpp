@@ -134,7 +134,7 @@ TEST(coordinate, scale_neutral_invariant_more)
 	
 }
 
-//TEST(coordinate, rotate_clockwise_one_circle)
+//TEST(coordinate, rotate_clockwise_360)
 //{
 //	coordinate initial{0,0};
 //	const coordinate invariant{ 1, 1 };
@@ -143,7 +143,7 @@ TEST(coordinate, scale_neutral_invariant_more)
 //	EXPECT_DOUBLE_EQ(initial.get_x(), 0);
 //}
 
-//TEST(coordinate, rotate_counter_clockwise_one_circle)
+//TEST(coordinate, rotate_counter_clockwise_360)
 //{
 //	coordinate initial{0, 0};
 //	const coordinate invariant{ 1, 1};

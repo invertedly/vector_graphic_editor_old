@@ -1,7 +1,5 @@
 #pragma once
 
-#include <utility>
-
 #include "command_interface.h"
 
 namespace vector_graphic_editor

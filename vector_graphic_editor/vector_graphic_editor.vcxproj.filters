@@ -25,6 +25,18 @@
     <Filter Include="Source Files\commands">
       <UniqueIdentifier>{9a54eb61-1104-4613-b20f-0cecc08b7a65}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\figure_database">
+      <UniqueIdentifier>{f8800e7f-5a8f-43c1-9ac9-c69d8fa00a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\figure_database">
+      <UniqueIdentifier>{9e5ae970-2adc-4862-ba1f-b9f9bf3f850c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\helper_classes">
+      <UniqueIdentifier>{d9448819-7e3e-4ef2-b4e1-06c033589582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\helper_classes">
+      <UniqueIdentifier>{199cb84b-04c3-4103-a4f3-a8050ecae5da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ellipse.h">
@@ -36,27 +48,6 @@
     <ClInclude Include="rectangle.h">
       <Filter>Header Files\figures</Filter>
     </ClInclude>
-    <ClInclude Include="coordinate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure_interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="angle_converter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure_id.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure_id_exception.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="figure_id_hash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="command_interface.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="translate.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
@@ -66,14 +57,35 @@
     <ClInclude Include="scale.h">
       <Filter>Header Files\commands</Filter>
     </ClInclude>
+    <ClInclude Include="command_interface.h">
+      <Filter>Header Files\commands</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_interface.h">
+      <Filter>Header Files\figures</Filter>
+    </ClInclude>
     <ClInclude Include="figure_database.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\figure_database</Filter>
     </ClInclude>
     <ClInclude Include="figure_database_exception.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\figure_database</Filter>
     </ClInclude>
-    <ClInclude Include="command_queue.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="figure_id.h">
+      <Filter>Header Files\figure_database</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_id_exception.h">
+      <Filter>Header Files\figure_database</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_id_hash.h">
+      <Filter>Header Files\figure_database</Filter>
+    </ClInclude>
+    <ClInclude Include="angle_converter.h">
+      <Filter>Header Files\helper_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="coordinate.h">
+      <Filter>Header Files\helper_classes</Filter>
+    </ClInclude>
+    <ClInclude Include="figure_database_iterator_exception.h">
+      <Filter>Header Files\figure_database</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +98,6 @@
     <ClCompile Include="ellipse.cpp">
       <Filter>Source Files\figures</Filter>
     </ClCompile>
-    <ClCompile Include="coordinate.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="translate.cpp">
       <Filter>Source Files\commands</Filter>
     </ClCompile>
@@ -96,13 +105,13 @@
       <Filter>Source Files\commands</Filter>
     </ClCompile>
     <ClCompile Include="scale.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\commands</Filter>
     </ClCompile>
     <ClCompile Include="figure_database.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\figure_database</Filter>
     </ClCompile>
-    <ClCompile Include="command_queue.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="coordinate.cpp">
+      <Filter>Source Files\helper_classes</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
