@@ -19,6 +19,14 @@ namespace vector_graphic_editor
 		);
 	}
 
+	ellipse::ellipse(const coordinate center, const double axis1, const double axis2,
+		const double angle_degrees) noexcept: center_(center),
+		                                      axis1_(axis1),
+		                                      axis2_(axis2),
+		                                      angle_degrees_(angle_degrees)
+	{
+	}
+
 	void ellipse::translate(const double translate_x, const double translate_y) noexcept
 	{
 		center_.translate(translate_x, translate_y);

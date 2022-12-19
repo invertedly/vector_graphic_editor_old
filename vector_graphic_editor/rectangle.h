@@ -13,13 +13,9 @@ namespace vector_graphic_editor
 
 	public:
 		explicit rectangle(
-			const coordinate first,
-			const coordinate second
-		) noexcept
-			: first_(first),
-			  second_(second)
-		{
-		}
+			coordinate first,
+			coordinate second
+		) noexcept;
 
 		void translate(double translate_x, double translate_y)	noexcept override;
 		void scale(double scale_x, double scale_y)				noexcept override;

@@ -4,7 +4,7 @@
 
 namespace vector_graphic_editor
 {
-	class rotate final : command_interface
+	class rotate final : public command_interface
 	{
 		std::shared_ptr<figure_interface> subject_;
 
@@ -13,7 +13,7 @@ namespace vector_graphic_editor
 		explicit rotate(
 			std::shared_ptr<figure_interface> subject,
 			double angle_degrees
-		) noexcept;
+		);
 
 		void redo() override;
 

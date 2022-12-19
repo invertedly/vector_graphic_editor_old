@@ -132,14 +132,15 @@
     <ClInclude Include="command_interface.h" />
     <ClInclude Include="coordinate.h" />
     <ClInclude Include="ellipse.h" />
-    <ClInclude Include="figure_database.h" />
-    <ClInclude Include="figure_database_exception.h" />
-    <ClInclude Include="figure_database_iterator_exception.h" />
+    <ClInclude Include="figure_collection.h" />
+    <ClInclude Include="figure_collection_exception.h" />
     <ClInclude Include="figure_id.h" />
     <ClInclude Include="figure_id_exception.h" />
     <ClInclude Include="figure_id_hash.h" />
     <ClInclude Include="figure_interface.h" />
+    <ClInclude Include="invalid_command_exception.h" />
     <ClInclude Include="line.h" />
+    <ClInclude Include="macro_command.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="rotate.h" />
     <ClInclude Include="scale.h" />
@@ -148,8 +149,10 @@
   <ItemGroup>
     <ClCompile Include="coordinate.cpp" />
     <ClCompile Include="ellipse.cpp" />
-    <ClCompile Include="figure_database.cpp" />
+    <ClCompile Include="figure_collection.cpp" />
+    <ClCompile Include="figure_id.cpp" />
     <ClCompile Include="line.cpp" />
+    <ClCompile Include="macro_command.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="rotate.cpp" />
     <ClCompile Include="scale.cpp" />

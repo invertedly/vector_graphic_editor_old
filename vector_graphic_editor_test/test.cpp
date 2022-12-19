@@ -1,14 +1,180 @@
 #include "pch.h"
 
 #include <numbers>
+#include <unordered_set>
 
 #include "../vector_graphic_editor/angle_converter.h"
 #include "../vector_graphic_editor/coordinate.h"
-#include "../vector_graphic_editor/coordinate.cpp"
 #include "../vector_graphic_editor/figure_id.h"
+#include "../vector_graphic_editor/figure_collection.h"
+
+#include "../vector_graphic_editor/rectangle.h"
+#include "../vector_graphic_editor/line.h"
+#include "../vector_graphic_editor/ellipse.h"
+
+#include "../vector_graphic_editor/rotate.h"
+#include "../vector_graphic_editor/translate.h"
+#include "../vector_graphic_editor/scale.h"
+
+#include "../vector_graphic_editor/macro_command.h"
+
+#include "../vector_graphic_editor/rectangle.cpp"
+#include "../vector_graphic_editor/line.cpp"
+#include "../vector_graphic_editor/ellipse.cpp"
+#include "../vector_graphic_editor/coordinate.cpp"
+#include "../vector_graphic_editor/figure_id.cpp"
+#include "../vector_graphic_editor/figure_collection.cpp"
+#include "../vector_graphic_editor/macro_command.cpp"
+
+#include "../vector_graphic_editor/rotate.cpp"/
+#include "../vector_graphic_editor/translate.cpp"
+#include "../vector_graphic_editor/scale.cpp"
 
 
 using namespace vector_graphic_editor;
+
+TEST(command, invalid_construct)
+{
+	EXPECT_THROW(rotate(std::shared_ptr<line>(), 1), invalid_command_exception);
+	EXPECT_THROW(scale(std::shared_ptr<line>(), 1, 1), invalid_command_exception);
+	EXPECT_THROW(translate(std::shared_ptr<line>(), 1, 1), invalid_command_exception);
+
+	macro_command macro_cmd;
+
+	EXPECT_THROW(macro_cmd.add(std::unique_ptr<rotate>()), invalid_command_exception);
+}
+
+TEST(macro_command, redo)
+{
+	figure_id id1{ "same_type", "id1" };
+	figure_id id2{ "same_type", "id2" };
+	figure_id id3{ "different_type", "id2" };
+
+	auto figure1 = std::make_shared<rectangle>(rectangle({ 1, 1 }, { 2,2 }));
+	auto figure2 = std::make_shared<line>(line({ 1, 1 }, { 2,2 }));
+	auto figure3 = std::make_shared<ellipse>(ellipse({ 0,0 }, 1, 1, 0));
+
+	std::unique_ptr<rotate> rotate1 = std::make_unique<rotate>(rotate(figure1, 90));
+	std::unique_ptr<rotate> rotate2 = std::make_unique<rotate>(rotate(figure2, 90));
+	std::unique_ptr<rotate> rotate3 = std::make_unique<rotate>(rotate(figure3, 90));
+
+	macro_command macro_cmd;
+
+	macro_cmd.add(std::move(rotate1));
+	macro_cmd.add(std::move(rotate2));
+	macro_cmd.add(std::move(rotate3));
+
+	macro_cmd.redo();
+
+	EXPECT_EQ(figure1.get()->get_first().get_x(), 2);
+	EXPECT_EQ(figure1.get()->get_first().get_y(), 1);
+	EXPECT_EQ(figure1.get()->get_second().get_x(), 1);
+	EXPECT_EQ(figure1.get()->get_second().get_y(), 2);
+
+	macro_cmd.redo();
+
+	EXPECT_EQ(figure1.get()->get_first().get_x(), 1);
+	EXPECT_EQ(figure1.get()->get_first().get_y(), 1);
+	EXPECT_EQ(figure1.get()->get_second().get_x(), 2);
+	EXPECT_EQ(figure1.get()->get_second().get_y(), 2);
+}
+
+TEST(figure_database, add)
+{
+	figure_collection database;
+
+	figure_id id1{ "same_type", "id1" };
+	figure_id id2{ "same_type", "id2" };
+	figure_id id3{ "different_type", "id2" };
+
+	std::shared_ptr<rectangle> figure = std::make_shared<rectangle>(rectangle({1, 1}, {2,2}));
+
+	EXPECT_NO_THROW(database.add(id1, figure));
+	EXPECT_NO_THROW(database.add(id2, figure));
+	EXPECT_NO_THROW(database.add(id3, figure));
+
+	EXPECT_THROW(database.add(id1, figure), figure_collection_exception);
+	EXPECT_THROW(database.add(id2, figure), figure_collection_exception);
+	EXPECT_THROW(database.add(id3, figure), figure_collection_exception);
+}
+
+TEST(figure_database, contains)
+{
+	figure_collection database;
+
+	figure_id id1{ "same_type", "id1" };
+	figure_id id2{ "same_type", "id2" };
+	figure_id id3{ "different_type", "id2" };
+	figure_id id4{ "different_type", "id3" };
+
+	EXPECT_FALSE(database.contains(id1));
+	EXPECT_FALSE(database.contains(id2));
+	EXPECT_FALSE(database.contains(id3));
+	EXPECT_FALSE(database.contains(id4));
+
+	std::shared_ptr<rectangle> figure = std::make_shared<rectangle>(rectangle({ 1, 1 }, { 2,2 }));
+
+	EXPECT_NO_THROW(database.add(id1, figure));
+	EXPECT_NO_THROW(database.add(id2, figure));
+	EXPECT_NO_THROW(database.add(id3, figure));
+
+	EXPECT_TRUE(database.contains(id1));
+	EXPECT_TRUE(database.contains(id2));
+	EXPECT_TRUE(database.contains(id3));
+	EXPECT_FALSE(database.contains(id4));
+}
+
+TEST(figure_database, get)
+{
+	figure_collection database;
+
+	figure_id id1{ "same_type", "id1" };
+	figure_id id2{ "same_type", "id2" };
+	figure_id id3{ "different_type", "id2" };
+	figure_id id4{ "different_type", "id3" };
+
+	EXPECT_THROW(database.get(id1), figure_collection_exception);
+
+	std::shared_ptr<rectangle> figure = std::make_shared<rectangle>(rectangle({ 1, 1 }, { 2,2 }));
+
+	EXPECT_NO_THROW(database.add(id1, figure));
+	EXPECT_NO_THROW(database.add(id2, figure));
+	EXPECT_NO_THROW(database.add(id3, figure));
+
+	EXPECT_NO_THROW(database.get(id1));
+	EXPECT_NO_THROW(database.get(id2));
+	EXPECT_NO_THROW(database.get(id3));
+	EXPECT_THROW(database.get(id4), figure_collection_exception);
+}
+
+TEST(figure_database, iterate)
+{
+	figure_collection database;
+
+	figure_id id1{ "same_type", "id1" };
+	figure_id id2{ "same_type", "id2" };
+	figure_id id3{ "different_type", "id2" };
+	figure_id id4{ "different_type", "id3" };
+
+	auto figure1 = std::make_shared<rectangle>(rectangle({ 1, 1 }, { 2,2 }));
+	auto figure2 = std::make_shared<line>(line({ 1, 1 }, { 2,2 }));
+	auto figure3 = std::make_shared<ellipse>(ellipse({0,0}, 1, 1, 0));
+
+	std::unordered_set<std::shared_ptr<figure_interface>> set = { figure1, figure2, figure3 };
+
+	EXPECT_NO_THROW(database.add(id1, figure1));
+	EXPECT_NO_THROW(database.add(id2, figure2));
+	EXPECT_NO_THROW(database.add(id3, figure3));
+
+	size_t figure_count = 0;
+
+	for (auto& [id, figure] : database)
+	{
+		ASSERT_TRUE(set.contains(figure));
+		++figure_count;
+	}
+	ASSERT_EQ(figure_count, set.size());
+}
 
 TEST(angle_converter, degrees_to_radians)
 {
@@ -200,8 +366,8 @@ TEST(coordinate, rotate_clockwise_540)
 
 TEST(figure_id, construct)
 {
-	EXPECT_NO_THROW(figure_id(std::string("")));
-	EXPECT_NO_THROW(figure_id(std::string("valid")));
-	EXPECT_THROW(figure_id("invalid]"), figure_id_exception);
-	EXPECT_THROW(figure_id("invalid]aswell"), figure_id_exception);
+	EXPECT_NO_THROW(figure_id(std::string(""), std::string("")));
+	EXPECT_NO_THROW(figure_id(std::string(""), std::string("valid")));
+	EXPECT_THROW(figure_id(std::string(""), "invalid]"), figure_id_exception);
+	EXPECT_THROW(figure_id(std::string(""), "invalid]aswell"), figure_id_exception);
 }

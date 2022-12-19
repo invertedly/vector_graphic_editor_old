@@ -8,7 +8,7 @@ namespace vector_graphic_editor
 	{
         std::size_t operator()(figure_id const& object) const noexcept
         {
-            return std::hash<std::string>{}(object.get());
+            return std::hash<std::string>{}(object.get_type_id() + object.get_user_id());
         }
 	};
 }

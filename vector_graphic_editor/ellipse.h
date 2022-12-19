@@ -11,17 +11,11 @@ namespace vector_graphic_editor
 		double axis1_, axis2_, angle_degrees_;
 	public:
 		explicit ellipse(
-			const coordinate center,
-			const double axis1,
-			const double axis2,
-			const double angle_degrees
-		) noexcept
-			: center_(center),
-			  axis1_(axis1),
-			  axis2_(axis2),
-			  angle_degrees_(angle_degrees)
-		{
-		}
+			coordinate center,
+			double axis1,
+			double axis2,
+			double angle_degrees
+		) noexcept;
 
 		void translate(double translate_x, double translate_y)	noexcept override;
 		void scale(double scale_x, double scale_y)				noexcept override;

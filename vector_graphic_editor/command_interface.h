@@ -2,6 +2,7 @@
 
 #include <memory>
 #include "figure_interface.h"
+#include "invalid_command_exception.h"
 
 namespace vector_graphic_editor
 {
@@ -19,6 +20,6 @@ namespace vector_graphic_editor
 		virtual void undo() = 0;
 		virtual void redo() = 0;
 
-		virtual ~command_interface() = 0;
+		virtual ~command_interface() = default;
 	};
 }

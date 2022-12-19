@@ -9,22 +9,17 @@ namespace vector_graphic_editor
 {
 	class figure_id final
 	{
+		std::string type_id_;
 		std::string user_id_;
 	public:
-		explicit figure_id(std::string user_id)
-			: user_id_(std::move(user_id))
-		{
-			if (user_id_.find(']') != std::string::npos)
-			{
-				throw figure_id_exception("unresolved character");
-			}
-		}
+		explicit figure_id(
+			std::string figure_type_id,
+			std::string user_id
+		);
 
-		bool operator==(const figure_id& other) const noexcept
-		{
-			return user_id_ == other.user_id_;
-		}
+		bool operator==(const figure_id& other) const noexcept;
 
-		[[nodiscard]] const std::string& get() const noexcept { return user_id_; }
+		[[nodiscard]] const std::string& get_user_id() const noexcept;
+		[[nodiscard]] const std::string& get_type_id() const noexcept;
 	};
 }

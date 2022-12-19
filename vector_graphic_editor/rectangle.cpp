@@ -10,6 +10,11 @@ namespace vector_graphic_editor
 		};
 	}
 
+	rectangle::rectangle(const coordinate first, const coordinate second) noexcept: first_(first),
+		second_(second)
+	{
+	}
+
 	void rectangle::translate(const double translate_x, const double translate_y) noexcept
 	{
 		first_.translate(translate_x, translate_y);

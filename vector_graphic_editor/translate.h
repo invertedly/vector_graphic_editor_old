@@ -14,7 +14,7 @@ namespace vector_graphic_editor
 			std::shared_ptr<figure_interface> subject,
 			double translate_x,
 			double translate_y
-		) noexcept;
+		);
 
 		void redo() override;
 
