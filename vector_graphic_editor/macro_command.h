@@ -12,10 +12,7 @@ namespace vector_graphic_editor
 	{
 		std::vector<std::unique_ptr<command_interface>> command_list_;
 	public:
-		explicit macro_command() = default;
-
 		void add(std::unique_ptr<command_interface> command);
-
 		void redo() override;
 		void undo() override;
 	};

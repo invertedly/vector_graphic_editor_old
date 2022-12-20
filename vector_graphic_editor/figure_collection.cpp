@@ -13,6 +13,11 @@ namespace vector_graphic_editor
 			throw figure_collection_exception("repetitive id");
 		}
 
+		if (!figure_ptr)
+		{
+			throw figure_collection_exception("empty figure pointer");
+		}
+
 		database_[id] = figure_ptr;
 	}
 

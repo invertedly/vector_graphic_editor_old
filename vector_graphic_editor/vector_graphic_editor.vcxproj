@@ -130,7 +130,11 @@
   <ItemGroup>
     <ClInclude Include="angle_converter.h" />
     <ClInclude Include="command_interface.h" />
+    <ClInclude Include="command_queue.h" />
     <ClInclude Include="coordinate.h" />
+    <ClInclude Include="editor.h" />
+    <ClInclude Include="editor_command_redo.h" />
+    <ClInclude Include="editor_exception.h" />
     <ClInclude Include="ellipse.h" />
     <ClInclude Include="figure_collection.h" />
     <ClInclude Include="figure_collection_exception.h" />
@@ -138,6 +142,8 @@
     <ClInclude Include="figure_id_exception.h" />
     <ClInclude Include="figure_id_hash.h" />
     <ClInclude Include="figure_interface.h" />
+    <ClInclude Include="figure_parser.h" />
+    <ClInclude Include="figure_parser_exception.h" />
     <ClInclude Include="invalid_command_exception.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="macro_command.h" />
@@ -145,12 +151,16 @@
     <ClInclude Include="rotate.h" />
     <ClInclude Include="scale.h" />
     <ClInclude Include="translate.h" />
+    <ClInclude Include="editor_command_undo.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="command_queue.cpp" />
     <ClCompile Include="coordinate.cpp" />
+    <ClCompile Include="editor.cpp" />
     <ClCompile Include="ellipse.cpp" />
     <ClCompile Include="figure_collection.cpp" />
     <ClCompile Include="figure_id.cpp" />
+    <ClCompile Include="figure_parser.cpp" />
     <ClCompile Include="line.cpp" />
     <ClCompile Include="macro_command.cpp" />
     <ClCompile Include="rectangle.cpp" />

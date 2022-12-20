@@ -22,10 +22,7 @@ namespace vector_graphic_editor
 		);
 
 		[[nodiscard]] bool contains(const figure_id& id) const noexcept;
-
-		[[nodiscard]] std::shared_ptr<figure_interface>& get(
-			const figure_id& id
-		);
+		[[nodiscard]] std::shared_ptr<figure_interface>& get(const figure_id& id);
 
 		auto begin() noexcept;
 		auto end() noexcept;
